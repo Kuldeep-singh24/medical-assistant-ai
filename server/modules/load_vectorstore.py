@@ -8,7 +8,7 @@ from pinecone import Pinecone, ServerlessSpec
 
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 
 load_dotenv()
@@ -60,9 +60,16 @@ index = pc.Index(PINECONE_INDEX_NAME)
 # Load, split, embed and upload PDFs
 def load_vectorstore(uploaded_files):
 
-    embed_model = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2"
-    )
+    try:
+        embed_model = HuggingFaceEmbeddings(
+            model_name="sentence-transformers/all-MiniLM-L6-v2"
+        )
+
+        print("Embedding model loaded successfully")
+
+    except Exception as e:
+        print("Embedding model error:", str(e))
+        raise e
 
     file_paths = []
 
