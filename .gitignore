@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+.venv/
+
+# Environment Variables
+.env
+
+# Build Files
+build/
+dist/
+*.egg-info/
+
+# Node Modules
+node_modules/
+
+# Vite
+.vite/
+
+# Logs
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Uploaded PDFs
+uploaded_docs/
+
+# VS Code
+.vscode/
+
+# Python Cache
+.pytest_cache/
+
+# Coverage
+.coverage
+htmlcov/
